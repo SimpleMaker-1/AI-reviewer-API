@@ -6,7 +6,7 @@ import os
 API_KEY = os.getenv('API_KEY')
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://simplemaker-1.github.io"}})
+CORS(app)
 
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
