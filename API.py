@@ -1,10 +1,13 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import google.generativeai as genai
 import os
 
 API_KEY = os.getenv('API_KEY')
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "https://simplemaker-1.github.io"}})
+
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
 PRE_PROMPT = "Please review this essay with the context that it is a 8th grade ELA project. Review this prompt while keeping in mind the goal is the find the things the student can improve on and NOT to give the student the answers directly. Give all the responses in a couple bullet points of any issues in the essay and how to improve them. if you do not find issues then do not write any bullet points. The essay is after this colon: "
