@@ -28,7 +28,7 @@ def review_essay():
     
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content(essay)
-    return jsonify({"result": response}),200
+    return jsonify({"result": response.text}),200
 
 
 if __name__ == '__main__':
