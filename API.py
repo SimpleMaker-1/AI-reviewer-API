@@ -22,8 +22,9 @@ def home():
 
 @app.route('/review', methods=['POST'])
 def review_essay():
-    essay = PRE_PROMPT
-    essay.append(request.json.get('essay'))
+    essay_input = request.json.get('essay')
+    essay = PRE_PROMPT + essay_input
+    
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content(essay)
     return jsonify({"result": response})
