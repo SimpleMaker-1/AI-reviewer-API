@@ -4,6 +4,7 @@ import google.generativeai as genai
 import os
 
 API_KEY = os.getenv('API_KEY')
+genai.configure(api_key=API_KEY)
 
 app = Flask(__name__)
 CORS(app)
@@ -24,7 +25,7 @@ def home():
 def review_essay():
     essay_input = request.json.get('essay')
     essay = PRE_PROMPT + essay_input
-    genai.configure(api_key=API_KEY)
+    
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content(essay)
     return jsonify({"result": response}),200
