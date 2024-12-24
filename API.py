@@ -24,10 +24,10 @@ def home():
 def review_essay():
     essay_input = request.json.get('essay')
     essay = PRE_PROMPT + essay_input
-    
+
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content(essay)
-    return jsonify({"result": response})
+    return jsonify({"result": response}),200
 
 
 if __name__ == '__main__':
