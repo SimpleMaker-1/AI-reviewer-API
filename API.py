@@ -11,7 +11,7 @@ CORS(app)
 
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
-PRE_PROMPT = "Please review this essay with the context that it is a 8th grade ELA project. Review this prompt while keeping in mind the goal is the find the things the student can improve on and NOT to give the student the answers directly. Give all the responses in a couple bullet points of any issues in the essay and how to improve them. if you do not find issues then do not write any bullet points. The essay is after this colon: "
+PRE_PROMPT = "Please review this essay with the understanding that it is an 8th-grade English Language Arts (ELA) project. The goal is to identify areas where the student can improve, without directly providing the answers. Focus on constructive feedback and suggestions for improvement, keeping your response concise. Limit the feedback to a few short sentences, and aim for under 300 words if possible. If you do not find any issues or areas for improvement, do not provide any feedback. The essay follows this colon:"
 
 
 # if no input 
