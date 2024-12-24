@@ -24,10 +24,9 @@ def home():
 def review_essay():
     essay_input = request.json.get('essay')
     essay = PRE_PROMPT + essay_input
-    essay = "test"
-    #model = genai.GenerativeModel('gemini-1.5-flash')
-    #response = model.generate_content(essay)
-    response = "test"
+    genai.configure(api_key=API_KEY)
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    response = model.generate_content(essay)
     return jsonify({"result": response}),200
 
 
